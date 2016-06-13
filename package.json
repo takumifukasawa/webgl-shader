@@ -1,0 +1,50 @@
+{
+  "name": "npm-frontend-starterkit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run server & npm run pug -- -w & npm run watchify & npm run sass -- -w -r --source-map true & npm run postcss -- -w",
+    "server": "live-server public",
+    "pug": "pug _develop/pug/entry/*.pug -P -o public/",
+    "sass": "node-sass --output-style expanded --output tmp/css --source-map-contents _develop/scss/entry/",
+    "postcss": "postcss --config config/postcss.json --dir public/css tmp/css/*.css",
+    "watchify": "watchify _develop/js/entry/index.js -t babelify -o 'exorcist public/js/index.js.map > public/js/index.js' -d -v",
+    "sprity": "sprity create public/images/ ./_develop/images/sprite/*.png --orientation binary-tree -c /images -s ../../_develop/scss/module/sprite.scss sprity-sass"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "babel-preset-es2015": "latest",
+    "babelify": "latest",
+    "browserify": "latest",
+    "css-mqpacker": "latest",
+    "cssnano": "latest",
+    "exorcist": "latest",
+    "live-server": "latest",
+    "lwip": "latest",
+    "node-sass": "latest",
+    "postcss": "latest",
+    "postcss-cli": "latest",
+    "pug": "latest",
+    "pug-cli": "latest",
+    "sprity": "latest",
+    "sprity-cli": "latest",
+    "sprity-sass": "latest",
+    "uglifyjs": "latest",
+    "watchify": "latest"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
+  }
+}
