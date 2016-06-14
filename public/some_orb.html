@@ -17,15 +17,15 @@
       uniform vec2 resolution; //resolution
       void main(void) {
         vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
-        /*
-        float x = (gl_FragCoord.x * 2.0 - resolution.x) / resolution.x;
-        float y = (gl_FragCoord.y * 2.0 - resolution.y) / resolution.y;
-        vec2 p = vec2(x, y);
-        */
-        p += vec2(cos(time * 5.0), sin(time)) * 0.5;
+        vec3 destColor = vec3(0.0);
       
-        float l = 0.1 * abs(sin(time)) / length(p);
-        gl_FragColor = vec4(vec3(l), 1.0);
+        for(float i=0.0; i<8.0; i++) {
+          float j = i + 1.0;
+          vec2 q = p + vec2(cos(time * j), sin(time * j)) * 0.5;
+          destColor += 0.05 / length(q);
+        }
+        
+        gl_FragColor = vec4(destColor, 1.0);
       }
     </script>
     <div class="wrapper"></div><a href="./base.html">base</a><br><a href="./gradation.html">gradation</a><br><a href="./time.html">time</a><br><a href="./orb.html">orb</a><br><a href="./some_orb.html">some_orb</a><br><a href="./ling.html">ling</a><br>
