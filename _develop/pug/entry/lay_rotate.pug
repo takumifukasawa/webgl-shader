@@ -1,0 +1,24 @@
+extends ../layout/_base
+
+block VertexShader
+  script#v-shader(type="x-shader/x-vertex").
+    void main(void){
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+
+block FragmentShader
+  script#f-shader(type="x-shader/x-fragment").
+    precision mediump float;
+    uniform float time; // time
+    uniform vec2 resolution; //resolution
+    void main(void) {
+      vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
+      float s = sin(time);
+      float c = cos(time);
+      mat2 m = mat2(c, s, -s, c); // 回転行列
+      p *= m; // 変換行列をベクトルに掛け合わせる
+
+      float f = 0.001 / ( abs(p.x) * abs(p.y) );
+      gl_FragColor = vec4(vec3(f), 1.0);
+    }
+
