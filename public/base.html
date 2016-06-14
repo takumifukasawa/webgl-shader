@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <script id="v-shader" type="x-shader/x-vertex">
+      void main(void){
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+      
+    </script>
+    <script id="f-shader" type="x-shader/x-fragment">
+      precision mediump float;
+      uniform float t; // time
+      uniform vec2 r; //resolution
+      void main(void) {
+        gl_FragColor = vec4(.0, 1.0, .0, 1.0);
+      }
+    </script>
+    <div class="wrapper"></div><a href="/base.html">base</a><br><a href="/gradation.html">gradation</a><br><a href="/time.html">time</a><br><a href="/orb.html">orb</a><br>
+    <script src="/js/three.min.js"></script>
+    <script src="/js/index.js"></script>
+  </body>
+</html>
