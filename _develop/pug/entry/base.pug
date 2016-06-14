@@ -1,0 +1,17 @@
+extends ../layout/_base
+
+block VertexShader
+  script#v-shader(type="x-shader/x-vertex").
+    void main(void){
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+
+block FragmentShader
+  script#f-shader(type="x-shader/x-fragment").
+    precision mediump float;
+    uniform float t; // time
+    uniform vec2 r; //resolution
+    void main(void) {
+      gl_FragColor = vec4(.0, 1.0, .0, 1.0);
+    }
+
