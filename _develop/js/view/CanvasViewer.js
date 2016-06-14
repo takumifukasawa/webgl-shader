@@ -1,7 +1,5 @@
 class CanvasViewer {
-  constructor() {
-    this.update = this.update.bind(this);
-  }
+  constructor() {}
 
   makeCanvas(root, classSelector, width, height) {
     this.width = width;
@@ -25,19 +23,7 @@ class CanvasViewer {
     this.scene.add(obj);
   }
 
-  start() {
-    this.update();
-  }
-  stop() {
-    cancelAnimationFrame(this.requestID);
-  }
-  setClock(clock) {
-    this.clock = clock;
-  }
-
   update() {
-    this.requestID = requestAnimationFrame(this.update);
-
     this.renderer.render(this.scene, this.camera);
   }
 }

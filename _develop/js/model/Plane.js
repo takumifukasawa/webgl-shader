@@ -7,12 +7,20 @@ export default class Plane {
     this.material = new THREE.ShaderMaterial({
       uniforms: opts.uniforms || {},
       vertexShader: opts.vertexShader || '',
-      fragmentShader: opts.fragmentShader || ''
+      fragmentShader: opts.fragmentShader || '',
+      needsUpdate: true
     });
+    console.log(this.material);
+    
+    this._mesh = new THREE.Mesh(this.geometry, this.material);
+  }
 
-    this.mesh = new THREE.Mesh(this.geometry, this.material);
+  get meshObject() {
+    return this._mesh;
+  }
 
-    return this.mesh;
+  update(timeStamp, deltaTime) {
+    this.material.uniforms.time.value = timeStamp / 1000;
   }
 
   clone() {

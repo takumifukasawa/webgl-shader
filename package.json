@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run server & npm run pug -- -w & npm run watchify & npm run sass -- -w -r --source-map true & npm run postcss -- -w",
+    "start": "npm run server -- --port=4000 & npm run pug -- -w & npm run watchify & npm run sass -- -w -r --source-map true & npm run postcss -- -w",
     "server": "live-server public",
     "pug": "pug _develop/pug/entry/*.pug -P -o public/",
     "sass": "node-sass --output-style expanded --output tmp/css --source-map-contents _develop/scss/entry/",
