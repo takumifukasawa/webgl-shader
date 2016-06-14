@@ -13,7 +13,14 @@ block FragmentShader
     uniform vec2 resolution; //resolution
     void main(void) {
       vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
-      float l = 0.1 * abs(sin(time)) / length(p) / 0.3;
+      /*
+      float x = (gl_FragCoord.x * 2.0 - resolution.x) / resolution.x;
+      float y = (gl_FragCoord.y * 2.0 - resolution.y) / resolution.y;
+      vec2 p = vec2(x, y);
+      */
+      p += vec2(cos(time * 5.0), sin(time)) * 0.5;
+
+      float l = 0.1 * abs(sin(time)) / length(p);
       gl_FragColor = vec4(vec3(l), 1.0);
     }
 

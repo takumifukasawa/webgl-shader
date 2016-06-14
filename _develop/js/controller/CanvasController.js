@@ -30,14 +30,14 @@ class CanvasController {
           value: 0.0
         },
         resolution: {
-          type: 'v',
+          type: 'v2',
           value: new THREE.Vector2(CANVAS_WIDTH, CANVAS_HEIGHT)
         }
       },
       vertexShader: normalShader.vertexShader,
       fragmentShader: normalShader.fragmentShader
     });
-    
+
     CanvasViewer.addObject(this.plane.meshObject);
   }
 

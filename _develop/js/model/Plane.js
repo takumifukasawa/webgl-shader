@@ -2,7 +2,7 @@ export default class Plane {
   constructor(opts = {}) {
     this.width = opts.width || null;
     this.height = opts.height || null;
-   
+  
     this.geometry = new THREE.PlaneGeometry(this.width, this.height);
     this.material = new THREE.ShaderMaterial({
       uniforms: opts.uniforms || {},
