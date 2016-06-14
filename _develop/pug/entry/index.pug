@@ -1,18 +1,15 @@
-doctype html
-html(lang="ja")
-  head
-    meta(charset="utf-8")
-    link(rel="stylesheet" href="/css/style.css")
-  body
-    script#v-shader(type="x-shader/x-vertex").
-      void main(void){
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-      }
-    script#f-shader(type="x-shader/x-fragment").
-      precision mediump float;
-      void main(void){
-        gl_FragColor = vec4(1.0, .0, .0, 1.0);
-      }
-    .wrapper
-    script(src="/js/three.min.js")
-    script(src="/js/index.js")
+extends ../layout/_base
+
+block VertexShader
+  script#v-shader(type="x-shader/x-vertex").
+    void main(void){
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+
+block FragmentShader
+  script#f-shader(type="x-shader/x-fragment").
+    precision mediump float;
+    void main(void) {
+      gl_FragColor = vec4(1.0, .0, .0, 1.0);
+    }
+
