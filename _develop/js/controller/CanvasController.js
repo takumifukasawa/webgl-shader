@@ -37,7 +37,7 @@ class CanvasController {
       vertexShader: normalShader.vertexShader,
       fragmentShader: normalShader.fragmentShader
     });
-   
+    
     CanvasViewer.addObject(this.plane.meshObject);
   }
 

@@ -7,10 +7,8 @@ export default class Plane {
     this.material = new THREE.ShaderMaterial({
       uniforms: opts.uniforms || {},
       vertexShader: opts.vertexShader || '',
-      fragmentShader: opts.fragmentShader || '',
-      needsUpdate: true
+      fragmentShader: opts.fragmentShader || ''
     });
-    console.log(this.material);
     
     this._mesh = new THREE.Mesh(this.geometry, this.material);
   }
