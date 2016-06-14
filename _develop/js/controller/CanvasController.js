@@ -2,8 +2,8 @@ import CanvasViewer from './../view/CanvasViewer.js';
 import Plane from './../model/Plane.js';
 import Shader from './../model/Shader.js';
 
-const CANVAS_WIDTH = 465;
-const CANVAS_HEIGHT = 465;
+const CANVAS_WIDTH = 600;
+const CANVAS_HEIGHT = 400;
 
 class CanvasController {
   constructor(opts = {}) {
